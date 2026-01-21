@@ -55,6 +55,13 @@ button{
 
 <script>
 function confirmPayment() {
+  console.log("orderName:", localStorage.getItem("orderName"));
+console.log("productName:", localStorage.getItem("productName"));
+console.log("orderPhone:", localStorage.getItem("orderPhone"));
+console.log("orderAddress:", localStorage.getItem("orderAddress"));
+console.log("productId:", localStorage.getItem("productId"));
+console.log("productPrice:", localStorage.getItem("productPrice"));
+
 
   // 🔹 ADDITION 1: prevent double clicks
   const btn = document.querySelector("button");
@@ -70,9 +77,14 @@ function confirmPayment() {
 
   // 🔹 ADDITION 3: basic safety check
   if (
-    !localStorage.getItem("orderName") ||
-    !localStorage.getItem("productName")
-  ) {
+  !localStorage.getItem("orderName") ||
+  !localStorage.getItem("orderPhone") ||
+  !localStorage.getItem("orderAddress") ||
+  !localStorage.getItem("productName") ||
+  !localStorage.getItem("productId") ||
+  !localStorage.getItem("productPrice")
+) {
+
     alert("Order data missing. Please start again.");
     btn.disabled = false;
     btn.innerText = "Payment Completed";
@@ -100,6 +112,11 @@ function confirmPayment() {
     window.location.href = "success.html";
   }, 1500);
 }
+if (!localStorage.getItem("productName")) {
+  alert("Invalid access. Please start from the product page.");
+  window.location.href = "index.html";
+}
+
 </script>
 
 </body>

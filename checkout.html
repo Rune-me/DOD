@@ -168,6 +168,15 @@ async function goToPayment(){
 
     // Save for payment page
     localStorage.setItem("orderId", orderId);
+    localStorage.setItem("orderName", name);
+localStorage.setItem("orderPhone", phone);
+localStorage.setItem("orderAddress", address);
+
+// these already exist earlier in flow, we just mirror them
+localStorage.setItem("productName", localStorage.getItem("productName"));
+localStorage.setItem("productId", localStorage.getItem("productId"));
+localStorage.setItem("productPrice", localStorage.getItem("productPrice"));
+
 
     window.location.href = "payment.html";
 
