@@ -12,8 +12,6 @@ body {
   background-color: #0f0f0f;
   color: #eaeaea;
   line-height: 1.6;
-  width: 100%;
-  min-height: 100vh;
 }
 
 /* =========================
@@ -21,9 +19,10 @@ body {
    ========================= */
 nav {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
   padding: 15px 5%;
   background-color: #000;
   position: sticky;
@@ -32,9 +31,8 @@ nav {
 }
 
 nav h1 {
-  font-size: clamp(22px, 4vw, 32px);
+  font-size: clamp(20px, 5vw, 32px);
   font-weight: 700;
-  letter-spacing: 2px;
 }
 
 nav h1 span {
@@ -42,11 +40,11 @@ nav h1 span {
 }
 
 nav a {
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 18px);
   color: #eaeaea;
   text-decoration: none;
-  margin-left: 20px;
-  transition: color 0.2s;
+  margin: 4px 10px;
+  white-space: nowrap;
 }
 
 nav a:hover {
@@ -58,8 +56,8 @@ nav a:hover {
    ========================= */
 .top-logo {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -70,7 +68,7 @@ nav a:hover {
 }
 
 /* =========================
-   HERO SECTION
+   HERO
    ========================= */
 .hero {
   text-align: center;
@@ -78,94 +76,12 @@ nav a:hover {
 }
 
 .hero h2 {
-  font-size: clamp(28px, 5vw, 48px);
-  margin-bottom: 10px;
+  font-size: clamp(24px, 5vw, 36px);
+  margin-bottom: 12px;
 }
 
 .hero p {
   font-size: clamp(16px, 3vw, 20px);
-  margin-bottom: 20px;
-}
-
-/* Make the categories (from hero paragraph) more clickable like buttons */
-.hero p {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-.hero p span {
-  background-color: #c9a14a;
-  color: #000;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.hero p span:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-/* =========================
-   PRODUCTS GRID (placeholder) 
-   ========================= */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  padding: 40px 5%;
-}
-
-.product {
-  background-color: #1a1a1a;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s, border 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.product:hover {
-  transform: translateY(-3px);
-  border: 1px solid #c9a14a;
-}
-
-.product img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-}
-
-.product h3 {
-  font-size: 16px;
-  margin: 10px 0 5px 0;
-}
-
-.price {
-  color: #c9a14a;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.buy-btn {
-  background-color: #c9a14a;
-  color: #000;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.buy-btn:hover {
-  opacity: 0.9;
 }
 
 /* =========================
@@ -176,6 +92,7 @@ footer {
   padding: 30px 5%;
   background-color: #000;
   opacity: 0.75;
+  font-size: clamp(12px, 2.5vw, 16px);
 }
 
 /* =========================
@@ -184,11 +101,23 @@ footer {
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
+    padding-top: 80px; /* space for logo */
+  }
+
+  nav h1 {
+    font-size: 24px;
+    text-align: center;
   }
 
   nav a {
-    margin-left: 0;
+    font-size: 16px;
+    margin: 4px 0;
+  }
+
+  .top-logo {
+    width: 50px;
+    height: 50px;
   }
 
   .hero {
@@ -199,29 +128,31 @@ footer {
     font-size: 28px;
   }
 
-  .hero p span {
-    padding: 6px 12px;
-    font-size: 14px;
+  .hero p {
+    font-size: 16px;
   }
 
-  .top-logo {
-    width: 50px;
-    height: 50px;
+  footer {
+    padding: 20px 5%;
   }
 }
 
 @media (min-width: 1024px) {
   nav h1 {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  nav a {
+    font-size: 18px;
+    margin-left: 15px;
   }
 
   .hero h2 {
-    font-size: 48px;
+    font-size: 36px;
   }
 
-  .hero p span {
-    font-size: 16px;
-    padding: 8px 16px;
+  .hero p {
+    font-size: 18px;
   }
 
   .top-logo {
