@@ -1,6 +1,4 @@
-/* =========================
-   GLOBAL RESET
-   ========================= */
+/* ===== GLOBAL RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -12,27 +10,34 @@ body {
   background-color: #0f0f0f;
   color: #eaeaea;
   line-height: 1.6;
+  width: 100%;
+  min-height: 100vh;
 }
 
-/* =========================
-   NAVBAR
-   ========================= */
+/* ===== LINKS ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== NAVBAR ===== */
 nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  padding: 15px 5%;
   background-color: #000;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 nav h1 {
-  font-size: clamp(20px, 5vw, 32px);
+  font-size: clamp(22px, 4vw, 32px);
   font-weight: 700;
+  letter-spacing: 2px;
 }
 
 nav h1 span {
@@ -41,19 +46,15 @@ nav h1 span {
 
 nav a {
   font-size: clamp(14px, 3vw, 18px);
-  color: #eaeaea;
-  text-decoration: none;
-  margin: 4px 10px;
-  white-space: nowrap;
+  opacity: 0.85;
+  margin: 5px 10px;
 }
 
 nav a:hover {
   color: #c9a14a;
 }
 
-/* =========================
-   TOP LOGO
-   ========================= */
+/* ===== TOP LOGO ===== */
 .top-logo {
   position: fixed;
   top: 15px;
@@ -67,61 +68,178 @@ nav a:hover {
   z-index: 1000;
 }
 
-/* =========================
-   HERO
-   ========================= */
+/* ===== HERO ===== */
 .hero {
+  padding: clamp(50px, 10vw, 120px) 5%;
   text-align: center;
-  padding: 80px 5% 40px;
 }
 
 .hero h2 {
-  font-size: clamp(24px, 5vw, 36px);
-  margin-bottom: 12px;
+  font-size: clamp(28px, 5vw, 48px);
+  margin-bottom: 15px;
 }
 
 .hero p {
   font-size: clamp(16px, 3vw, 20px);
+  opacity: 0.75;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
-footer {
+/* ===== CATEGORY CARDS ===== */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 40px 5%;
+}
+
+.category {
+  background-color: #1a1a1a;
+  padding: 25px 15px;
+  border-radius: 12px;
+  cursor: pointer;
   text-align: center;
-  padding: 30px 5%;
+  transition: 0.3s ease;
+}
+
+.category:hover {
+  border: 1px solid #c9a14a;
+  transform: translateY(-5px);
+}
+
+.category h3 {
+  font-size: clamp(16px, 2.5vw, 20px);
+  margin-bottom: 8px;
+}
+
+/* ===== PRODUCT GRID ===== */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 40px 5%;
+}
+
+.product {
+  background-color: #1a1a1a;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  border: 1px solid #c9a14a;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.product h3 {
+  font-size: clamp(14px, 2.5vw, 18px);
+  padding: 10px 15px 0;
+}
+
+.price {
+  color: #c9a14a;
+  font-weight: 600;
+  padding: 6px 15px 15px;
+}
+
+/* ===== PRODUCT DETAIL PAGE ===== */
+.detail {
+  display: flex;
+  gap: clamp(20px, 5vw, 50px);
+  flex-wrap: wrap;
+}
+
+.detail img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 14px;
+}
+
+.detail h1 {
+  font-size: clamp(24px, 5vw, 34px);
+  margin-bottom: 10px;
+}
+
+.detail p {
+  margin-bottom: 12px;
+  opacity: 0.85;
+}
+
+/* ===== BUTTONS ===== */
+button,
+.buy-btn {
+  background-color: #c9a14a;
+  color: #000;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover,
+.buy-btn:hover {
+  opacity: 0.9;
+}
+
+/* ===== FORMS ===== */
+form {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 14px;
+  background-color: #111;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* ===== CHECKOUT BOX ===== */
+.checkout-box {
+  max-width: 100%;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 14px;
+}
+
+/* ===== FOOTER ===== */
+footer {
   background-color: #000;
+  padding: 25px 5%;
+  text-align: center;
   opacity: 0.75;
   font-size: clamp(12px, 2.5vw, 16px);
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
-    gap: 8px;
-    padding-top: 80px; /* space for logo */
-  }
-
-  nav h1 {
-    font-size: 24px;
-    text-align: center;
-  }
-
-  nav a {
-    font-size: 16px;
-    margin: 4px 0;
-  }
-
-  .top-logo {
-    width: 50px;
-    height: 50px;
+    gap: 10px;
   }
 
   .hero {
-    padding: 60px 5% 30px;
+    padding: 50px 5%;
   }
 
   .hero h2 {
@@ -132,8 +250,13 @@ footer {
     font-size: 16px;
   }
 
-  footer {
-    padding: 20px 5%;
+  .top-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .product img {
+    height: auto;
   }
 }
 
@@ -144,7 +267,6 @@ footer {
 
   nav a {
     font-size: 18px;
-    margin-left: 15px;
   }
 
   .hero h2 {
