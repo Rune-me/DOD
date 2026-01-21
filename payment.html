@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    background: white;
+    padding: 25px;
+    width: 350px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+img{
+    width: 200px;
+    margin: 20px 0;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Scan to Pay</h2>
+
+    <img src="scannerr.jpeg">
+
+    <p>Scan using any UPI app</p>
+
+    <button onclick="confirmPayment()">Payment Completed</button>
+</div>
+
+<script>
+function confirmPayment() {
+
+  // 🔹 ADDITION 1: prevent double clicks
+  const btn = document.querySelector("button");
+  btn.disabled = true;
+  btn.innerText = "Processing...";
+
+  // 🔹 ADDITION 2: generate order ID (only if not exists)
+  let orderId = localStorage.getItem("orderId");
+  if (!orderId) {
+    orderId = "ORD" + Date.now();
+    localStorage.setItem("orderId", orderId);
+  }
+
+  // 🔹 ADDITION 3: basic safety check
+  if (
+    !localStorage.getItem("orderName") ||
+    !localStorage.getItem("productName")
+  ) {
+    alert("Order data missing. Please start again.");
+    btn.disabled = false;
+    btn.innerText = "Payment Completed";
+    return;
+  }
+
+  fetch("https://script.google.com/macros/s/AKfycbwHhzFuUr_OTd1f5MyZ24py3E9PJ984vQOdsCcUW5Q1iqMynd3Z4e5OnMuBaEaZDY-2sg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify({
+      orderId: orderId,                               // ✅ ADDITION
+      name: localStorage.getItem("orderName"),
+      phone: localStorage.getItem("orderPhone"),
+      address: localStorage.getItem("orderAddress"),
+      product: localStorage.getItem("productName"),
+      productId: localStorage.getItem("productId"),
+      price: localStorage.getItem("productPrice"),
+      payment: "Pending"
+    })
+  });
+
+  alert("Payment submitted. We will verify and confirm shortly.");
+
+  setTimeout(() => {
+    window.location.href = "success.html";
+  }, 1500);
+}
+</script>
+
+</body>
+</html>

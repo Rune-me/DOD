@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Checkout</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    background: white;
+    padding: 25px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input, textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    background: #ff9900;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #e68a00;
+}
+
+.note{
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Delivery Details</h2>
+
+    <input id="name" placeholder="Full Name">
+    <input id="phone" placeholder="Phone Number">
+    <textarea id="address" placeholder="Delivery Address"></textarea>
+
+    <h3 id="product"></h3>
+    <p id="price"></p>
+
+    <button onclick="goToPayment()">Proceed to Payment</button>
+
+    <p class="note">Online payment only</p>
+</div>
+
+<!--<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzle78prWbjqmNpozpFfiCztsYi5gLxsqBGaSKqG1s92ZeMuUkQsmWwBdoskeMQtf0iZw/exec";
+
+// Show product info on load
+document.getElementById("product").innerText =
+  localStorage.getItem("productName");
+
+document.getElementById("price").innerText =
+  "₹" + localStorage.getItem("productPrice");
+
+function goToPayment(){
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const address = document.getElementById("address").value;
+
+    if(!name || !phone || !address){
+        alert("Please fill all details");
+        return;
+    }
+
+    const orderId = "ORD-" + Date.now();
+
+    const payload = {
+        orderId: orderId,
+        name: name,
+        phone: phone,
+        address: address,
+
+        // 🔥 THIS IS WHAT ADMIN NEEDS
+        product: localStorage.getItem("productName"),
+        productId: localStorage.getItem("productId"),
+        price: localStorage.getItem("productPrice"),
+
+        payment: "Pending"
+    };
+
+    console.log("Sending order:", payload);
+
+    fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(msg => {
+        console.log(msg);
+        window.location.href = "payment.html";
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Order failed. Try again.");
+    });
+}
+</script>-->
+<script>
+async function goToPayment(){
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+
+  if(!name || !phone || !address){
+    alert("Please fill all details");
+    return;
+  }
+
+  const orderId = "ORD-" + Math.floor(100000 + Math.random() * 900000);
+
+  const payload = {
+    orderId: orderId,
+    name: name,
+    phone: phone,
+    address: address,
+    product: localStorage.getItem("productName"),
+    productId: localStorage.getItem("productId"),
+    price: localStorage.getItem("productPrice"),
+    payment: "Pending"
+  };
+
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwHhzFuUr_OTd1f5MyZ24py3E9PJ984vQOdsCcUW5Q1iqMynd3Z4e5OnMuBaEaZDY-2sg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    // Save for payment page
+    localStorage.setItem("orderId", orderId);
+
+    window.location.href = "payment.html";
+
+  } catch (err) {
+    alert("Order failed. Try again.");
+    console.error(err);
+  }
+}
+</script>
+
+</body>
+</html>

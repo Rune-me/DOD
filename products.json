@@ -1,0 +1,242 @@
+[
+  {
+    "id": 1,
+    "name": "Skinny High Jeans",
+    "category": "pants",
+    "price": "499",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768920736/P001_1_rg3rec.jpg",
+    "description": ""
+  },
+  {
+    "id": 2,
+    "name": "Black Long coat",
+    "category": "sweatshirts",
+    "price": "1099",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768920736/C001_1_rrctx0.jpg",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 3,
+    "name": "Regular Straight",
+    "category": "pants",
+    "price": "499",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768920734/P002_1_kp48q1.jpg",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 4,
+    "name": "Japanese Art Hoodie",
+    "category": "hoodies",
+    "price": "459",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932377/9D9E6250-0647-4407-B1CD-8ABAB7B457FD_uu8jjr.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 5,
+    "name": "Straight Cut Baggy Jeans",
+    "category": "pants",
+    "price": "449",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932361/ED52DDE9-5A3C-405A-A5BE-4478ABEC3016_b4s6ny.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 6,
+    "name": "Cargo Denim Pant",
+    "category": "pants",
+    "price": "499",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932360/DE27F573-267E-4AAC-B0BD-98AAC6F37F79_vr1mse.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 7,
+    "name": "White Regular Fit Denim",
+    "category": "pants",
+    "price": "399",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932360/677E6D61-B517-4256-883E-A6768AAF7589_iblkjo.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 8,
+    "name": "Premium Linen Jogger Pant",
+    "category": "pants",
+    "price": "459",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932358/165045B1-D3FC-4B6E-A283-39C18DA30CF9_t18g06.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 9,
+    "name": "Sweater Hoodie",
+    "category": "hoodies",
+    "price": "459",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932357/926F323C-5C4F-459E-A82B-873C6D3939E5_rq3cs0.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 10,
+    "name": "Grey Sweatshirts",
+    "category": "sweatshirts",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932357/E730B06D-F5A4-4F09-B2A2-03DF4A6D33B3_qpphmr.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 11,
+    "name": "Black Nike Hoodie",
+    "category": "hoodies",
+    "price": "459",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932356/B4DB1FBB-E5BB-45E1-96CF-D9CB0BABADBF_snzgu8.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 12,
+    "name": "Cartoon Rabbits Hoodie",
+    "category": "hoodies",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932354/AC86A5F2-870E-4309-BAED-08654105EF70_eomjs8.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 13,
+    "name": "Olive Green Hoodie",
+    "category": "hoodies",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932354/7F8EC88E-9A11-4366-9946-E28E2F869332_xyfmzo.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 14,
+    "name": "Green Under Armour Hoodie",
+    "category": "hoodies",
+    "price": "449",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932353/D90E3AE5-28D1-452A-80BD-8DEB811BB395_p9rwre.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 15,
+    "name": "Light Grey Hoodie",
+    "category": "hoodies",
+    "price": "449",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932353/3C5A61BF-0136-4398-A766-E368E66172AF_cjj7oh.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 16,
+    "name": "Cream Hoodie Sweatshirt",
+    "category": "sweatshirts",
+    "price": "449",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932352/14BACFF9-7724-4681-9C5F-221B174B3E49_l4pkxo.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 17,
+    "name": "Navy Blue Sweatshirt",
+    "category": "sweatshirts",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932352/96F19270-3418-4EBA-A5CE-D5FDC9587135_kniio3.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 18,
+    "name": "Black Crewneck Sweater",
+    "category": "sweatshirts",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932350/9FC811EA-3988-4F22-B820-8843709CDB40_pr8kf6.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 19,
+    "name": "Forest Green Sweatshirts",
+    "category": "sweatshirts",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932348/882AE8DF-189D-4166-AC50-A578510713BD_gyahbi.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 20,
+    "name": "Black Marshoff Hoodie",
+    "category": "hoodies",
+    "price": "449",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932350/5BD44B36-E9BD-4EEE-88BC-0F9B79A11164_hynyrg.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 21,
+    "name": "Green Polo V-Neck Sweater",
+    "category": "sweatshirts",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932347/F697D5B1-5534-4572-93FC-A2F6B5CF65C9_xik8a8.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 22,
+    "name": "Black & Gray KIXI Hoodie",
+    "category": "hoodies",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932344/10B27AE0-A3C9-4525-BE52-E0E218735DED_aacxxa.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 23,
+    "name": "Brown & cream Hoodie",
+    "category": "hoodies",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932345/EDDC4DF3-6873-4F7C-82D8-114413C07308_ejv7rh.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 24,
+    "name": "Minimal Beige Sweatshirt",
+    "category": "sweatshirts",
+    "price": "???",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932344/4D9D0790-CC9B-4DC5-9C9B-1468A656E4A5_swizpu.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 25,
+    "name": "GAP Original",
+    "category": "hoodies",
+    "price": "499",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932344/379BBA76-3B00-4373-B357-15340151FD0F_balx21.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 26,
+    "name": "Light Grey Lifestyle Hoodie",
+    "category": "hoodies",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932344/71C5194F-3750-43FD-B773-B34EE5E1B59F_tu2q6e.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 27,
+    "name": "Black & Red Champion Hoodie",
+    "category": "hoodies",
+    "price": "349",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932343/F1FD9A8A-4B60-4A35-A8E9-7B97CD7BFF34_jqyqcm.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 28,
+    "name": "Immanuel Warriors Hoodie",
+    "category": "hoodies",
+    "price": "369",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932343/D31E2AB2-F533-4DB7-B848-47BA83482CD8_qtqc1h.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 29,
+    "name": "Union Park Brand Sweatshirt",
+    "category": "sweatshirts",
+    "price": "329",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932179/38831FC8-F2C2-407A-802F-FE6E2B3BF789_b9sh2r.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  },
+  {
+    "id": 30,
+    "name": "New York Jets Sweatshirts",
+    "category": "sweatshirts",
+    "price": "339",
+    "image":"https://res.cloudinary.com/dkwelgvij/image/upload/v1768932178/79BD5B87-B016-4DDE-B8BB-11A1C9AFE8AF_mamjmj.png",
+    "description": "Premium cotton hoodie with a clean old-money aesthetic."
+  }
+]

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Confirmed</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    background: white;
+    padding: 30px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2{
+    color: #28a745;
+}
+
+.details{
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+strong{
+    display: block;
+    margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>✅ Order Placed</h2>
+    <p>Wait for the confirmation message...</p>
+
+    <div class="details">
+        <strong>Name:</strong> <span id="name"></span>
+        <strong>Phone:</strong> <span id="phone"></span>
+        <strong>Address:</strong> <span id="address"></span>
+    </div>
+</div>
+
+<script>
+document.getElementById("name").innerText = localStorage.getItem("orderName");
+document.getElementById("phone").innerText = localStorage.getItem("orderPhone");
+document.getElementById("address").innerText = localStorage.getItem("orderAddress");
+</script>
+
+</body>
+</html>
