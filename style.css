@@ -1,4 +1,6 @@
-/* ===== GLOBAL RESET ===== */
+/* =========================
+   GLOBAL RESET
+   ========================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,102 +20,134 @@ body {
   min-height: 100vh;
 }
 
-/* ===== LINKS ===== */
+/* =========================
+   LINKS
+   ========================= */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* ===== NAVBAR ===== */
+/* =========================
+   NAVBAR
+   ========================= */
 nav {
-  background-color: #000;
-  padding: 15px 5%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 10px;
+  padding: 20px 5%;
   position: sticky;
   top: 0;
+  background-color: #000;
   z-index: 1000;
+  text-align: center;
 }
 
 nav h1 {
-  font-size: 22px;
+  font-size: clamp(20px, 5vw, 32px);
   font-weight: 700;
   letter-spacing: 2px;
 }
 
 nav h1 span {
-  color: #c9a14a; /* luxury gold */
+  color: #c9a14a;
 }
 
 nav a {
   font-size: 14px;
+  color: #eaeaea;
   opacity: 0.85;
+  margin: 5px;
+  transition: color 0.3s;
 }
 
 nav a:hover {
   color: #c9a14a;
 }
 
-/* ===== HERO (HOME PAGE) ===== */
+/* =========================
+   TOP LOGO
+   ========================= */
+.top-logo {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #000;
+  object-fit: cover;
+  padding: 5px;
+  z-index: 1000;
+}
+
+/* =========================
+   HERO
+   ========================= */
 .hero {
-  padding: 70px 5%;
+  padding: 100px 5% 40px;
   text-align: center;
 }
 
 .hero h2 {
-  font-size: 32px;
-  margin-bottom: 15px;
+  font-size: clamp(24px, 5vw, 36px);
+  margin-bottom: 10px;
 }
 
 .hero p {
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 18px);
   opacity: 0.75;
 }
 
-/* ===== SECTIONS ===== */
+/* =========================
+   SECTIONS
+   ========================= */
 .section {
-  padding: 45px 5%;
+  padding: 40px 5%;
 }
 
 .section h2 {
-  font-size: 26px;
+  font-size: clamp(20px, 4vw, 32px);
   margin-bottom: 25px;
 }
 
-/* ===== CATEGORY CARDS ===== */
+/* =========================
+   CATEGORY CARDS
+   ========================= */
 .categories {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
 }
 
 .category {
   background-color: #1a1a1a;
-  padding: 25px 15px;
+  padding: 20px;
   border-radius: 12px;
-  cursor: pointer;
   text-align: center;
-  transition: 0.3s ease;
+  cursor: pointer;
+  transition: transform 0.3s, border 0.3s;
 }
 
 .category:hover {
+  transform: translateY(-3px);
   border: 1px solid #c9a14a;
-  transform: translateY(-4px);
 }
 
 .category h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: clamp(14px, 3vw, 18px);
+  margin-bottom: 5px;
 }
 
-/* ===== PRODUCT GRID ===== */
+/* =========================
+   PRODUCT GRID
+   ========================= */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
 }
 
 .product {
@@ -121,69 +155,48 @@ nav a:hover {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s, border 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .product:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border: 1px solid #c9a14a;
 }
 
 .product img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1/1; /* keeps product image square and responsive */
+  aspect-ratio: 1/1;
   object-fit: cover;
 }
 
 .product h3 {
-  font-size: 16px;
-  padding: 10px 12px 0;
+  font-size: clamp(14px, 3vw, 16px);
+  margin: 10px 0 5px 0;
 }
 
 .price {
   color: #c9a14a;
   font-weight: 600;
-  padding: 5px 12px 12px;
-}
-
-/* ===== PRODUCT DETAIL PAGE ===== */
-.detail {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.detail img {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-  align-self: center;
-}
-
-.detail h1 {
-  font-size: 28px;
   margin-bottom: 10px;
 }
 
-.detail p {
-  margin-bottom: 10px;
-  opacity: 0.85;
-}
-
-/* ===== BUTTONS ===== */
+/* =========================
+   BUTTONS
+   ========================= */
 button,
 .buy-btn {
   background-color: #c9a14a;
   color: #000;
-  padding: 12px 20px;
+  padding: 10px 16px;
   border: none;
   border-radius: 6px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
-  width: fit-content;
 }
 
 button:hover,
@@ -191,7 +204,9 @@ button:hover,
   opacity: 0.9;
 }
 
-/* ===== FORMS (ADMIN + CHECKOUT) ===== */
+/* =========================
+   FORMS (ADMIN + CHECKOUT)
+   ========================= */
 form {
   max-width: 100%;
 }
@@ -213,32 +228,20 @@ textarea {
   height: 100px;
 }
 
-/* ===== CHECKOUT PAGE ===== */
-.checkout-box {
-  width: 90%;
-  max-width: 500px;
-  background-color: #1a1a1a;
-  padding: 25px;
-  border-radius: 12px;
-  margin: auto;
-}
-
-/* ===== ADMIN PAGE ===== */
-.admin-title {
-  margin-bottom: 20px;
-  font-size: 24px;
-}
-
-/* ===== FOOTER ===== */
+/* =========================
+   FOOTER
+   ========================= */
 footer {
-  background-color: #000;
-  padding: 30px 5%;
   text-align: center;
-  margin-top: 60px;
+  padding: 20px 5%;
+  margin-top: 50px;
   opacity: 0.75;
+  font-size: 14px;
 }
 
-/* ===== BACK TO HOME ICON BUTTON ===== */
+/* =========================
+   HOME BUTTON
+   ========================= */
 .home-btn {
   position: fixed;
   bottom: 20px;
@@ -251,10 +254,9 @@ footer {
   align-items: center;
   justify-content: center;
   font-size: 20px;
-  text-decoration: none;
   border-radius: 50%;
   box-shadow: 0 8px 20px rgba(0,0,0,0.45);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  transition: transform 0.35s, box-shadow 0.35s, background 0.35s;
 }
 
 .home-btn:hover {
@@ -267,87 +269,83 @@ footer {
   transform: scale(0.92);
 }
 
-/* ===== MEDIA QUERIES ===== */
+/* =========================
+   MEDIA QUERIES
+   ========================= */
 
-/* Phones */
-@media (max-width: 480px) {
+/* PHONES */
+@media (max-width: 768px) {
   nav {
-    padding: 12px 5%;
     flex-direction: column;
-    gap: 10px;
+    padding-top: 80px; /* space for fixed logo */
   }
 
   nav h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   nav a {
-    font-size: 13px;
+    font-size: 16px;
+    margin: 3px 0;
   }
 
   .hero {
-    padding: 60px 5%;
+    padding: 60px 5% 30px;
   }
 
-  .hero h2 {
-    font-size: 24px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  .section {
-    padding: 40px 5%;
-  }
-
-  .section h2 {
-    font-size: 22px;
-  }
-
-  .product img {
-    aspect-ratio: 1/1;
-  }
-
-  .detail h1 {
-    font-size: 24px;
-  }
-
-  footer {
-    padding: 20px 5%;
+  .top-logo {
+    width: 50px;
+    height: 50px;
   }
 }
 
-/* Tablets */
-@media (min-width: 481px) and (max-width: 1024px) {
-  nav h1 {
-    font-size: 22px;
+/* TABLETS */
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav {
+    justify-content: space-around;
+    padding: 20px 5%;
   }
 
-  .hero h2 {
+  nav h1 {
     font-size: 28px;
   }
 
-  .section h2 {
-    font-size: 24px;
+  nav a {
+    font-size: 16px;
   }
 
-  .detail img {
-    max-width: 350px;
+  .hero {
+    padding: 80px 5% 40px;
+  }
+
+  .top-logo {
+    width: 60px;
+    height: 60px;
   }
 }
 
-/* Large desktops */
-@media (min-width: 1400px) {
-  .hero h2 {
-    font-size: 50px;
-  }
-
-  .section {
-    padding: 80px 8%;
-  }
-
+/* DESKTOPS */
+@media (min-width: 1025px) {
   nav {
-    padding: 22px 8%;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  nav h1 {
+    font-size: 36px;
+  }
+
+  nav a {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .hero {
+    padding: 120px 5% 60px;
+  }
+
+  .top-logo {
+    width: 70px;
+    height: 70px;
   }
 }
