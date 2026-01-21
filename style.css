@@ -279,4 +279,110 @@ footer {
 .home-btn:active {
   transform: scale(0.92);
 }
+/* =====================================================
+   RESPONSIVE EXTENSIONS (NON-DESTRUCTIVE)
+   ===================================================== */
+
+/* ---------- SMALL PHONES ---------- */
+@media (max-width: 480px) {
+
+  nav {
+    padding: 14px 20px;
+    justify-content: center;
+  }
+
+  nav h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 70px 20px;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .section {
+    padding: 45px 20px;
+  }
+
+  .section h2 {
+    font-size: 26px;
+  }
+
+  .product img {
+    height: 240px;
+  }
+
+  .detail h1 {
+    font-size: 28px;
+  }
+
+  footer {
+    margin-top: 50px;
+    padding: 25px 15px;
+  }
+
+  .home-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+/* ---------- TABLETS ---------- */
+@media (min-width: 481px) and (max-width: 1024px) {
+
+  nav {
+    padding: 16px 30px;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  .hero {
+    padding: 90px 30px;
+  }
+
+  .hero h2 {
+    font-size: 40px;
+  }
+
+  .section {
+    padding: 55px 30px;
+  }
+
+  .detail img {
+    width: 320px;
+  }
+}
+
+/* ---------- LARGE DESKTOP SCREENS ---------- */
+@media (min-width: 1400px) {
+
+  .hero h2 {
+    font-size: 54px;
+  }
+
+  .section {
+    padding: 80px 80px;
+  }
+
+  nav {
+    padding: 22px 80px;
+  }
+}
 

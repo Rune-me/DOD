@@ -42,6 +42,91 @@
   object-fit: cover;  
   z-index: 1000;
 }
+/* =========================
+   RESPONSIVE ADDITIONS
+   ========================= */
+
+/* Default: improve nav wrapping */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+/* Make nav links wrap nicely */
+nav a {
+  white-space: nowrap;
+}
+
+/* Responsive hero text */
+.hero h2 {
+  font-size: clamp(20px, 4vw, 32px);
+}
+
+.hero p {
+  font-size: clamp(14px, 3vw, 18px);
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+   ========================= */
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    padding-top: 90px; /* space for fixed logo */
+  }
+
+  nav h1 {
+    font-size: 22px;
+  }
+
+  nav a {
+    font-size: 16px;
+    margin: 4px 0;
+  }
+
+  .top-logo {
+    width: 60px;
+    height: 60px;
+    padding: 6px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .hero {
+    padding: 20px;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* =========================
+   LARGE SCREENS
+   ========================= */
+@media (min-width: 1024px) {
+
+  nav {
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+
+  nav h1 {
+    font-size: 32px;
+  }
+
+  nav a {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+}
 
 
 
