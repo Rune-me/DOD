@@ -94,8 +94,13 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
-fetch("products.json")
-  .then(res => res.json())
+/*fetch("products.json")
+  .then(res => res.json())*/
+  fetch(PRODUCTS_API_URL)
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch products");
+      return res.json();
+    })
   .then(data => {
 
     const p = data.find(item => item.id == id);
