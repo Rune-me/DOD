@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Checkout</title>
 
 <style>
@@ -48,8 +47,9 @@ button{
     cursor: pointer;
 }
 
-button:hover{
-    background: #e68a00;
+button:disabled{
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 .note{
@@ -73,69 +73,29 @@ button:hover{
     <h3 id="product"></h3>
     <p id="price"></p>
 
-    <button onclick="goToPayment()">Proceed to Payment</button>
+    <button id="payBtn" onclick="goToPayment()">Proceed to Payment</button>
 
     <p class="note">Online payment only</p>
 </div>
 
-<!--<script>
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzle78prWbjqmNpozpFfiCztsYi5gLxsqBGaSKqG1s92ZeMuUkQsmWwBdoskeMQtf0iZw/exec";
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwHhzFuUr_OTd1f5MyZ24py3E9PJ984vQOdsCcUW5Q1iqMynd3Z4e5OnMuBaEaZDY-2sg/exec";
 
-// Show product info on load
+// Show product info
 document.getElementById("product").innerText =
-  localStorage.getItem("productName");
+  localStorage.getItem("productName") || "";
 
 document.getElementById("price").innerText =
-  "₹" + localStorage.getItem("productPrice");
+  "₹" + (localStorage.getItem("productPrice") || "");
 
-function goToPayment(){
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const address = document.getElementById("address").value;
+let submitted = false; // 🔒 prevents double submit
 
-    if(!name || !phone || !address){
-        alert("Please fill all details");
-        return;
-    }
-
-    const orderId = "ORD-" + Date.now();
-
-    const payload = {
-        orderId: orderId,
-        name: name,
-        phone: phone,
-        address: address,
-
-        // 🔥 THIS IS WHAT ADMIN NEEDS
-        product: localStorage.getItem("productName"),
-        productId: localStorage.getItem("productId"),
-        price: localStorage.getItem("productPrice"),
-
-        payment: "Pending"
-    };
-
-    console.log("Sending order:", payload);
-
-    fetch(SCRIPT_URL, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-    })
-    .then(res => res.text())
-    .then(msg => {
-        console.log(msg);
-        window.location.href = "payment.html";
-    })
-    .catch(err => {
-        console.error(err);
-        alert("Order failed. Try again.");
-    });
-}
-</script>-->
-<script>
 async function goToPayment(){
+
+  if(submitted) return; // extra safety
+
+  const btn = document.getElementById("payBtn");
+
   const name = document.getElementById("name").value.trim();
   const phone = document.getElementById("phone").value.trim();
   const address = document.getElementById("address").value.trim();
@@ -145,7 +105,11 @@ async function goToPayment(){
     return;
   }
 
-  const orderId = "ORD-" + Math.floor(100000 + Math.random() * 900000);
+  submitted = true;
+  btn.disabled = true;
+  btn.innerText = "Processing...";
+
+  const orderId = "ORD-" + Date.now(); // safer than random
 
   const payload = {
     orderId: orderId,
@@ -159,30 +123,24 @@ async function goToPayment(){
   };
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbwHhzFuUr_OTd1f5MyZ24py3E9PJ984vQOdsCcUW5Q1iqMynd3Z4e5OnMuBaEaZDY-2sg/exec", {
+    await fetch(SCRIPT_URL, {
       method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
 
     // Save for payment page
     localStorage.setItem("orderId", orderId);
     localStorage.setItem("orderName", name);
-localStorage.setItem("orderPhone", phone);
-localStorage.setItem("orderAddress", address);
-
-// these already exist earlier in flow, we just mirror them
-localStorage.setItem("productName", localStorage.getItem("productName"));
-localStorage.setItem("productId", localStorage.getItem("productId"));
-localStorage.setItem("productPrice", localStorage.getItem("productPrice"));
-
+    localStorage.setItem("orderPhone", phone);
+    localStorage.setItem("orderAddress", address);
 
     window.location.href = "payment.html";
 
   } catch (err) {
+    submitted = false;
+    btn.disabled = false;
+    btn.innerText = "Proceed to Payment";
     alert("Order failed. Try again.");
     console.error(err);
   }
