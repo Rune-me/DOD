@@ -78,7 +78,7 @@ button:disabled{
     <p class="note">Online payment only</p>
 </div>
 
-<script>
+<!--<script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwHhzFuUr_OTd1f5MyZ24py3E9PJ984vQOdsCcUW5Q1iqMynd3Z4e5OnMuBaEaZDY-2sg/exec";
 
 // Show product info
@@ -157,7 +157,55 @@ async function goToPayment(){
     console.error(err);
   }
 }
+</script>-->
+<script>
+async function goToPayment(){
+  const btn = document.getElementById("payBtn");
+  btn.disabled = true;
+  btn.innerText = "Processing...";
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const address = document.getElementById("address").value.trim();
+
+  if(!name || !phone || !address){
+    alert("Please fill all details");
+    btn.disabled = false;
+    btn.innerText = "Proceed to Payment";
+    return;
+  }
+
+  const orderId = "ORD-" + Date.now();
+
+  const payload = {
+    orderId,
+    name,
+    phone,
+    address,
+    product: localStorage.getItem("productName"),
+    productId: localStorage.getItem("productId"),
+    price: localStorage.getItem("productPrice"),
+    payment: "Pending"
+  };
+
+  // 🔥 FIRE & FORGET (NO ERROR HANDLING)
+  fetch("https://script.google.com/macros/s/AKfycbwHhzFuUr_OTd1f5MyZ24py3E9PJ984vQOdsCcUW5Q1iqMynd3Z4e5OnMuBaEaZDY-2sg/exec", {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+
+  // ✅ ALWAYS CONTINUE
+  localStorage.setItem("orderId", orderId);
+  localStorage.setItem("orderName", name);
+  localStorage.setItem("orderPhone", phone);
+  localStorage.setItem("orderAddress", address);
+
+  window.location.href = "payment.html";
+}
 </script>
+
 
 </body>
 </html>
