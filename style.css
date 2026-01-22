@@ -5,6 +5,19 @@
   box-sizing: border-box;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.mobile-contact-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
 
 body {
   background-color: #0f0f0f;
@@ -280,5 +293,25 @@ footer {
   .top-logo {
     width: 70px;
     height: 70px;
+  }
+}
+@media (max-width: 768px) {
+
+  body {
+    padding-bottom: 60px; /* space for bottom bar */
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
