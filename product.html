@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Product Details</title>
 </head>
 
@@ -93,16 +92,15 @@
    =========================== */
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+
+// ✅ Your deployed Google Sheet Web App URL
 const PRODUCTS_API_URL = "https://script.google.com/macros/s/AKfycbxSLdTKjza6Tpu6EYLamKRtLQxcGLt9psiZID0BJk5PXSNO7EeVwKKofgJczDh8HIyMdQ/exec";
 
-
-/*fetch("products.json")
-  .then(res => res.json())*/
-  fetch(PRODUCTS_API_URL)
-    .then(res => {
-      if (!res.ok) throw new Error("Failed to fetch products");
-      return res.json();
-    })
+fetch(PRODUCTS_API_URL)
+  .then(res => {
+    if (!res.ok) throw new Error("Failed to fetch products");
+    return res.json();
+  })
   .then(data => {
 
     const p = data.find(item => item.id == id);
@@ -110,38 +108,45 @@ const PRODUCTS_API_URL = "https://script.google.com/macros/s/AKfycbxSLdTKjza6Tpu
 
     // Create carousel for multiple images
     let imagesHTML = '';
-    if (p.images && p.images.length > 0) {
+    // If 'images' array exists, use it. Else fallback to image1/image2
+    const imagesArray = p.images && p.images.length > 0 ? p.images : [p.image1, p.image2].filter(Boolean);
+    
+    if (imagesArray.length > 0) {
       imagesHTML = `
         <div class="carousel">
           <button class="prev">&#10094;</button>
           <div class="carousel-images">
-            ${p.images.map(img => `<img src="${img}" alt="${p.name}">`).join('')}
+            ${imagesArray.map(img => `<img src="${img}" alt="${p.name}">`).join('')}
           </div>
           <button class="next">&#10095;</button>
         </div>
       `;
-    } else {
-      // fallback to single image if 'images' array not found
-      imagesHTML = `<img src="${p.image}" style="width:300px">`;
     }
+
+    // Disable Buy Now if stock = 0
+    const buyButtonHTML = p.stock === 0
+      ? `<button class="buy-btn" disabled style="background: gray; cursor: not-allowed;">Out of Stock</button>`
+      : `<button class="buy-btn" id="buyBtn">Buy Now</button>`;
 
     document.getElementById("product").innerHTML = `
       ${imagesHTML}
       <h2>${p.name}</h2>
-      <p>${p.description}</p>
+      <p>${p.description || ""}</p>
       <h3>₹${p.price}</h3>
-
-      <button class="buy-btn" id="buyBtn">Buy Now</button>
+      ${buyButtonHTML}
     `;
 
     // ✅ Attach click AFTER element exists
-    document.getElementById("buyBtn").addEventListener("click", function () {
-      localStorage.setItem("productName", p.name);
-      localStorage.setItem("productId", p.id);
-      localStorage.setItem("productPrice", p.price);
+    const buyBtn = document.getElementById("buyBtn");
+    if (buyBtn) {
+      buyBtn.addEventListener("click", function () {
+        localStorage.setItem("productName", p.name);
+        localStorage.setItem("productId", p.id);
+        localStorage.setItem("productPrice", p.price);
 
-      window.location.href = "checkout.html";
-    });
+        window.location.href = "checkout.html";
+      });
+    }
 
     // ===== Carousel Functionality =====
     const carousel = document.querySelector('.carousel');
@@ -168,6 +173,10 @@ const PRODUCTS_API_URL = "https://script.google.com/macros/s/AKfycbxSLdTKjza6Tpu
       });
     }
 
+  })
+  .catch(err => {
+    console.error("Error loading product:", err);
+    document.getElementById("product").innerHTML = "<p>Failed to load product details.</p>";
   });
 </script>
 
