@@ -4,7 +4,7 @@ const category = params.get("cat"); // make sure URL has ?cat=someCategory
 const titleEl = document.getElementById("title");
 
 // Paste your Web App URL here
-const PRODUCTS_API_URL = "https://script.google.com/macros/s/AKfycbxSLdTKjza6Tpu6EYLamKRtLQxcGLt9psiZID0BJk5PXSNO7EeVwKKofgJczDh8HIyMdQ/exec";
+const PRODUCTS_API_URL = "https://script.google.com/macros/s/AKfycbwrxSzJ7rnPqhAfOry3FDnhDDzZpAco939CNGloiAJUzWMhIDakgTztQKLX4d56AgvttQ/exec";
 
 if (titleEl && category) {
   titleEl.innerText = category.toUpperCase();
