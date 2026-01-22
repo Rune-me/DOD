@@ -3,6 +3,9 @@ const params = new URLSearchParams(window.location.search);
 const category = params.get("cat"); // make sure URL has ?cat=someCategory
 const titleEl = document.getElementById("title");
 
+// Paste your Web App URL here
+const PRODUCTS_API_URL = "https://script.google.com/macros/s/AKfycbxSLdTKjza6Tpu6EYLamKRtLQxcGLt9psiZID0BJk5PXSNO7EeVwKKofgJczDh8HIyMdQ/exec";
+
 if (titleEl && category) {
   titleEl.innerText = category.toUpperCase();
 }
@@ -10,9 +13,9 @@ if (titleEl && category) {
 if (!productsDiv) {
   console.error("Products container not found");
 } else {
-  fetch("products.json")
+  fetch(PRODUCTS_API_URL)
     .then(res => {
-      if (!res.ok) throw new Error("Failed to fetch products.json");
+      if (!res.ok) throw new Error("Failed to fetch products");
       return res.json();
     })
     .then(data => {
@@ -32,13 +35,17 @@ if (!productsDiv) {
       }
 
       filtered.forEach(product => {
+        const buyButtonHTML = product.stock === 0
+          ? `<button class="view-btn" disabled style="background: gray; cursor: not-allowed;">Out of Stock</button>`
+          : `<button class="view-btn">View Details</button>`;
+
         const productHTML = `
           <div class="product-card" onclick="openProduct(${product.id})">
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image1}" alt="${product.name}">
             <div class="product-info">
               <h3>${product.name}</h3>
               <div class="price">₹${product.price}</div>
-              <button class="view-btn">View Details</button>
+              ${buyButtonHTML}
             </div>
           </div>
         `;
